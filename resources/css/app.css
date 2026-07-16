@@ -115,6 +115,45 @@
             radial-gradient(circle at 85% 20%, rgba(0, 184, 230, 0.35), transparent 40%);
     }
 
+    /* Promo panel: deep navy with brand glow + diagonal speed streaks */
+    .promo-panel {
+        background-color: #071427;
+        background-image:
+            radial-gradient(ellipse 90% 60% at 100% 0%, rgba(0, 184, 230, 0.28), transparent 55%),
+            radial-gradient(ellipse 70% 50% at 0% 100%, rgba(0, 86, 214, 0.30), transparent 55%),
+            linear-gradient(150deg, #041322 0%, #0B1F3A 55%, #06213f 100%);
+    }
+
+    .promo-panel::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+            115deg,
+            transparent 0,
+            transparent 22px,
+            rgba(0, 184, 230, 0.05) 22px,
+            rgba(0, 184, 230, 0.05) 24px
+        );
+        pointer-events: none;
+    }
+
+    .promo-panel::after {
+        content: '';
+        position: absolute;
+        right: -20%;
+        top: 8%;
+        height: 3px;
+        width: 70%;
+        background: linear-gradient(90deg, transparent, #00B8E6, transparent);
+        box-shadow:
+            0 44px 0 -1px rgba(0, 184, 230, 0.5),
+            0 88px 0 -1px rgba(0, 86, 214, 0.4);
+        transform: rotate(-25deg);
+        pointer-events: none;
+        opacity: 0.55;
+    }
+
     .newsprint-texture {
         position: relative;
     }

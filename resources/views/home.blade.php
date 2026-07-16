@@ -46,32 +46,63 @@
 
                     {{-- Promo pemasangan --}}
                     <aside class="flex flex-col lg:col-span-5">
-                        <div class="flex flex-1 flex-col justify-between bg-signal-panel p-6 text-white lg:p-8">
-                            <div>
+                        <div class="promo-panel relative flex flex-1 flex-col overflow-hidden p-6 text-white sm:p-8 lg:p-10">
+                            {{-- Watermark hexagon --}}
+                            <svg class="pointer-events-none absolute -right-10 -top-10 h-48 w-48 text-white/[0.04]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M6 2h12l5 10-5 10H6L1 12 6 2Z" />
+                            </svg>
+
+                            {{-- Header row --}}
+                            <div class="relative flex items-center justify-between gap-3">
                                 <x-ui.section-label class="!text-accent">Promo Pemasangan</x-ui.section-label>
-                                <p class="mt-4 font-body text-sm leading-relaxed text-white/70">
-                                    Pemasangan &amp; sewa modem
-                                </p>
-                                <p class="mt-2 flex items-baseline gap-2">
-                                    <span class="font-mono text-lg text-white/70">Rp</span>
-                                    <span class="font-serif text-5xl font-black italic tracking-tight text-white lg:text-6xl">{{ $installFee }}</span>
-                                </p>
+                                <span class="inline-flex items-center gap-2 border border-accent/60 bg-accent/10 px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-accent">
+                                    <span class="inline-block h-1.5 w-1.5 animate-pulse bg-accent" aria-hidden="true"></span>
+                                    Terbatas
+                                </span>
                             </div>
 
-                            <div class="mt-6 space-y-3">
-                                <div class="flex items-center gap-3 border border-white/20 bg-white/5 px-4 py-3">
-                                    <span class="inline-block h-2 w-2 shrink-0 bg-accent" aria-hidden="true"></span>
-                                    <span class="font-sans text-sm font-semibold">{{ ucfirst($installNote) }}</span>
-                                </div>
+                            {{-- Price --}}
+                            <div class="relative mt-6">
+                                <p class="font-body text-sm text-white/60">Pemasangan &amp; sewa modem</p>
+                                <p class="mt-1 flex items-baseline gap-2">
+                                    <span class="font-mono text-xl text-white/70">Rp</span>
+                                    <span class="font-serif text-6xl font-black italic leading-none tracking-tight text-white lg:text-7xl">{{ $installFee }}</span>
+                                </p>
+                                <span class="mt-3 inline-flex items-center gap-2 bg-accent px-3 py-1 font-sans text-xs font-bold uppercase tracking-wide text-[#041018]">
+                                    ✓ {{ ucfirst($installNote) }}
+                                </span>
+                            </div>
+
+                            {{-- Feature checklist --}}
+                            <ul class="relative mt-7 space-y-3 border-t border-white/10 pt-6">
+                                @foreach ([
+                                    'Gratis survey lokasi',
+                                    'Instalasi rapi oleh teknisi',
+                                    'Langsung online setelah pasang',
+                                ] as $feature)
+                                    <li class="flex items-center gap-3">
+                                        <span class="flex h-6 w-6 shrink-0 items-center justify-center bg-white/10 text-accent" aria-hidden="true">
+                                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>
+                                        </span>
+                                        <span class="font-body text-sm text-white/85">{{ $feature }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                            {{-- CTA --}}
+                            <div class="relative mt-auto pt-7">
                                 <a
                                     href="{{ $waGeneral }}"
                                     target="_blank"
                                     rel="noopener"
-                                    class="inline-flex w-full min-h-[44px] items-center justify-center gap-2 bg-[#25D366] px-4 py-3 font-sans text-xs font-semibold uppercase tracking-widest text-white transition-transform duration-200 hover:-translate-y-0.5"
+                                    class="group inline-flex w-full min-h-[48px] items-center justify-center gap-2 bg-[#25D366] px-4 py-3 font-sans text-sm font-bold uppercase tracking-widest text-white shadow-[4px_4px_0_0_rgba(255,255,255,0.15)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_rgba(255,255,255,0.2)]"
                                 >
-                                    <x-ui.wa-icon class="h-5 w-5" />
+                                    <x-ui.wa-icon class="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />
                                     Hubungi {{ $waDisplay }}
                                 </a>
+                                <p class="mt-3 text-center font-mono text-[11px] uppercase tracking-widest text-white/50">
+                                    Respon cepat · Tanpa biaya di muka
+                                </p>
                             </div>
                         </div>
                     </aside>
