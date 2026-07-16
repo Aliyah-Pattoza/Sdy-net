@@ -178,7 +178,7 @@
                                 <span class="font-sans text-sm font-semibold text-foreground">Ketuk untuk unggah foto KTP</span>
                                 <span class="font-mono text-xs text-neutral-500">JPG / PNG · maks. 5 MB</span>
                             </label>
-                            <input type="file" id="ktp" name="ktp" accept="image/*" capture="environment" required class="sr-only">
+                            <input type="file" id="ktp" name="ktp" accept="image/*" required class="sr-only">
 
                             {{-- Preview --}}
                             <div id="ktp-preview" class="mt-4 hidden">
