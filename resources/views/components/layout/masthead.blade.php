@@ -3,10 +3,13 @@
         ['label' => 'Beranda', 'href' => '#front'],
         ['label' => 'Paket', 'href' => '#paket'],
         ['label' => 'Keunggulan', 'href' => '#keunggulan'],
-        ['label' => 'Jangkauan', 'href' => '#jangkauan'],
+        ['label' => 'Cara Daftar', 'href' => '#cara-daftar'],
         ['label' => 'FAQ', 'href' => '#faq'],
         ['label' => 'Kontak', 'href' => '#kontak'],
     ];
+
+    $waDisplay = config('sdynet.whatsapp_display');
+    $waLink = 'https://wa.me/'.config('sdynet.whatsapp').'?text='.rawurlencode('Halo SDY NET, saya ingin daftar internet.');
 @endphp
 
 <header class="sticky top-0 z-40 border-b-4 border-brand bg-background/90 backdrop-blur-sm">
@@ -16,8 +19,8 @@
                 <span class="inline-block h-2 w-2 animate-pulse bg-accent" aria-hidden="true"></span>
                 Fiber Online
             </span>
-            <span class="hidden sm:inline">High Speed Internet Provider</span>
-            <a href="tel:+628000000000" class="hover:text-accent transition-colors">24/7 Support</a>
+            <span class="hidden sm:inline">Internet Cepat &amp; Handal</span>
+            <a href="{{ $waLink }}" target="_blank" rel="noopener" class="hover:text-accent transition-colors">WA {{ $waDisplay }}</a>
         </div>
     </div>
 
@@ -43,7 +46,10 @@
             </nav>
 
             <div class="hidden lg:block">
-                <x-ui.button href="#kontak" size="sm">Pasang Sekarang</x-ui.button>
+                <x-ui.button href="{{ $waLink }}" target="_blank" rel="noopener" size="sm">
+                    <x-ui.wa-icon class="h-4 w-4" />
+                    Pasang Sekarang
+                </x-ui.button>
             </div>
 
             <button
@@ -72,7 +78,10 @@
                 </a>
             @endforeach
             <div class="py-3">
-                <x-ui.button href="#kontak" class="w-full">Pasang Sekarang</x-ui.button>
+                <x-ui.button href="{{ $waLink }}" target="_blank" rel="noopener" class="w-full">
+                    <x-ui.wa-icon class="h-4 w-4" />
+                    Pasang Sekarang
+                </x-ui.button>
             </div>
         </nav>
     </div>

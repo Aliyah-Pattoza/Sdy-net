@@ -1,11 +1,10 @@
 @props([
     'items' => [
-        'Fiber hingga 1 Gbps',
-        'Instalasi cepat',
-        'Tanpa FUP',
-        'Support 24/7',
-        'Stabil untuk streaming & kerja',
-        'High Speed Internet Provider',
+        'Internet Cepat & Handal',
+        'Bayar setelah instalasi selesai',
+        'Paket mulai Rp 150.000/bulan',
+        'Cocok untuk streaming & gaming',
+        'Daftar mudah via WhatsApp',
     ],
 ])
 
