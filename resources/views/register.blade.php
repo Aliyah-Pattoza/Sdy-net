@@ -220,6 +220,12 @@
                             ← Kembali ke daftar paket
                         </a>
                     </div>
+
+                    {{-- Hint cadangan bila WhatsApp tidak otomatis terbuka --}}
+                    <p id="submit-hint" class="mt-4 hidden border-l-4 border-[#25D366] bg-neutral-100 p-3 font-body text-xs leading-relaxed text-neutral-600">
+                        WhatsApp sedang dibuka di tab baru. Jika tidak muncul,
+                        <a id="wa-manual-link" href="#" target="_blank" rel="noopener" class="font-semibold text-brand underline">klik di sini untuk membuka WhatsApp</a>.
+                    </p>
                 </form>
             </div>
         </div>

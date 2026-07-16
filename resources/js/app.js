@@ -214,6 +214,21 @@ function initRegisterForm() {
         return ok;
     };
 
+    const hint = document.getElementById('submit-hint');
+    const manualLink = document.getElementById('wa-manual-link');
+
+    const openWhatsApp = (waLink) => {
+        // Tampilkan link manual sebagai cadangan (kalau pop-up diblokir)
+        if (manualLink) manualLink.href = waLink;
+        hint?.classList.remove('hidden');
+
+        const win = window.open(waLink, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+            // Pop-up diblokir → pindah langsung di tab yang sama
+            window.location.href = waLink;
+        }
+    };
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (!validate()) {
@@ -222,9 +237,15 @@ function initRegisterForm() {
         }
 
         const message = buildMessage();
+        const waLink = `https://wa.me/${wa}?text=${encodeURIComponent(message)}`;
 
-        // 1) Coba Web Share API dengan file (mobile) — kirim foto + teks sekaligus
-        if (ktpFile && navigator.canShare && navigator.canShare({ files: [ktpFile] })) {
+        // Di HP (layar sentuh) yang mendukung berbagi file:
+        // kirim foto KTP + data teks sekaligus lewat share sheet.
+        const isTouch = window.matchMedia('(pointer: coarse)').matches;
+        const canShareFile =
+            ktpFile && navigator.canShare && navigator.canShare({ files: [ktpFile] });
+
+        if (isTouch && canShareFile) {
             try {
                 await navigator.share({
                     files: [ktpFile],
@@ -234,13 +255,12 @@ function initRegisterForm() {
                 return;
             } catch (err) {
                 if (err.name === 'AbortError') return;
-                // lanjut ke fallback
+                // gagal berbagi → buka WhatsApp biasa
             }
         }
 
-        // 2) Fallback: buka wa.me ke nomor admin dengan teks lengkap
-        const waLink = `https://wa.me/${wa}?text=${encodeURIComponent(message)}`;
-        window.open(waLink, '_blank', 'noopener');
+        // Desktop / tidak mendukung: langsung ke WhatsApp admin dengan teks lengkap
+        openWhatsApp(waLink);
     });
 }
 
