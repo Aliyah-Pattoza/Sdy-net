@@ -1,11 +1,12 @@
 @php
+    $home = route('home');
     $navLinks = [
-        ['label' => 'Beranda', 'href' => '#front'],
-        ['label' => 'Paket', 'href' => '#paket'],
-        ['label' => 'Keunggulan', 'href' => '#keunggulan'],
-        ['label' => 'Cara Daftar', 'href' => '#cara-daftar'],
-        ['label' => 'FAQ', 'href' => '#faq'],
-        ['label' => 'Kontak', 'href' => '#kontak'],
+        ['label' => 'Beranda', 'href' => $home.'#front'],
+        ['label' => 'Paket', 'href' => $home.'#paket'],
+        ['label' => 'Keunggulan', 'href' => $home.'#keunggulan'],
+        ['label' => 'Cara Daftar', 'href' => $home.'#cara-daftar'],
+        ['label' => 'FAQ', 'href' => $home.'#faq'],
+        ['label' => 'Kontak', 'href' => $home.'#kontak'],
     ];
 
     $waDisplay = config('sdynet.whatsapp_display');

@@ -1,4 +1,5 @@
 @php
+    $home = route('home');
     $waDisplay = config('sdynet.whatsapp_display');
     $waLink = 'https://wa.me/'.config('sdynet.whatsapp').'?text='.rawurlencode('Halo SDY NET, saya ingin daftar internet.');
 @endphp
@@ -20,10 +21,10 @@
             <div class="border-b border-r border-foreground p-6 md:col-span-3 md:p-8 lg:col-span-2">
                 <p class="mb-4 font-mono text-xs uppercase tracking-widest text-neutral-500">Menu</p>
                 <ul class="space-y-3 font-sans text-xs font-semibold uppercase tracking-widest">
-                    <li><a href="#front" class="hover:text-brand">Beranda</a></li>
-                    <li><a href="#paket" class="hover:text-brand">Paket</a></li>
-                    <li><a href="#keunggulan" class="hover:text-brand">Keunggulan</a></li>
-                    <li><a href="#cara-daftar" class="hover:text-brand">Cara Daftar</a></li>
+                    <li><a href="{{ $home }}#front" class="hover:text-brand">Beranda</a></li>
+                    <li><a href="{{ $home }}#paket" class="hover:text-brand">Paket</a></li>
+                    <li><a href="{{ $home }}#keunggulan" class="hover:text-brand">Keunggulan</a></li>
+                    <li><a href="{{ $home }}#cara-daftar" class="hover:text-brand">Cara Daftar</a></li>
                 </ul>
             </div>
 
@@ -31,7 +32,7 @@
                 <p class="mb-4 font-mono text-xs uppercase tracking-widest text-neutral-500">Paket</p>
                 <ul class="space-y-3 font-sans text-xs font-semibold uppercase tracking-widest">
                     @foreach (config('sdynet.packages') as $package)
-                        <li><a href="#paket" class="hover:text-brand">{{ str_replace('Paket ', '', $package['name']) }}</a></li>
+                        <li><a href="{{ route('register', ['paket' => $package['slug']]) }}" class="hover:text-brand">{{ str_replace('Paket ', '', $package['name']) }}</a></li>
                     @endforeach
                 </ul>
             </div>
