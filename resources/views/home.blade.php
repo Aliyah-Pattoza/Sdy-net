@@ -121,9 +121,6 @@
                             Paket Internet SDY NET
                         </h2>
                     </div>
-                    <p class="max-w-md font-body text-sm leading-relaxed text-neutral-600">
-                        Klik paket untuk langsung mendaftar via WhatsApp. Pilih sesuai kebutuhan — bisa upgrade kapan saja.
-                    </p>
                 </div>
 
                 <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
