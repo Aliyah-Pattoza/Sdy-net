@@ -216,11 +216,12 @@ function initRegisterForm() {
 
     const hint = document.getElementById('submit-hint');
     const manualLink = document.getElementById('wa-manual-link');
+    const sharePhotoBtn = document.getElementById('share-ktp-btn');
 
     const openWhatsApp = (waLink) => {
-        // Tampilkan link manual sebagai cadangan (kalau pop-up diblokir)
         if (manualLink) manualLink.href = waLink;
         hint?.classList.remove('hidden');
+        hint?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         const win = window.open(waLink, '_blank');
         if (!win || win.closed || typeof win.closed === 'undefined') {
@@ -229,7 +230,23 @@ function initRegisterForm() {
         }
     };
 
-    form.addEventListener('submit', async (e) => {
+    // Tombol opsional: lampirkan foto KTP lewat share sheet (khusus HP)
+    const canShareFile = () =>
+        ktpFile && navigator.canShare && navigator.canShare({ files: [ktpFile] });
+
+    sharePhotoBtn?.addEventListener('click', async () => {
+        if (!canShareFile()) return;
+        try {
+            await navigator.share({
+                files: [ktpFile],
+                title: 'Foto KTP — Pendaftaran SDY NET',
+            });
+        } catch (err) {
+            /* dibatalkan user, abaikan */
+        }
+    });
+
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (!validate()) {
             form.querySelector('.field-error:not(.hidden)')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -239,28 +256,13 @@ function initRegisterForm() {
         const message = buildMessage();
         const waLink = `https://wa.me/${wa}?text=${encodeURIComponent(message)}`;
 
-        // Di HP (layar sentuh) yang mendukung berbagi file:
-        // kirim foto KTP + data teks sekaligus lewat share sheet.
-        const isTouch = window.matchMedia('(pointer: coarse)').matches;
-        const canShareFile =
-            ktpFile && navigator.canShare && navigator.canShare({ files: [ktpFile] });
-
-        if (isTouch && canShareFile) {
-            try {
-                await navigator.share({
-                    files: [ktpFile],
-                    text: message,
-                    title: 'Pendaftaran SDY NET',
-                });
-                return;
-            } catch (err) {
-                if (err.name === 'AbortError') return;
-                // gagal berbagi → buka WhatsApp biasa
-            }
-        }
-
-        // Desktop / tidak mendukung: langsung ke WhatsApp admin dengan teks lengkap
+        // Selalu buka chat WhatsApp ADMIN secara langsung (teks lengkap terisi).
         openWhatsApp(waLink);
+
+        // Kalau perangkat mendukung berbagi file, tampilkan tombol lampirkan foto.
+        if (canShareFile()) {
+            sharePhotoBtn?.classList.remove('hidden');
+        }
     });
 }
 

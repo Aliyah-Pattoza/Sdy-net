@@ -201,8 +201,9 @@
                     <div class="mt-6 flex items-start gap-3 border border-muted bg-neutral-100 p-4">
                         <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
                         <p class="font-body text-xs leading-relaxed text-neutral-600">
-                            Menekan <span class="font-semibold text-foreground">Kirim</span> akan membuka WhatsApp berisi data pendaftaran Anda.
-                            Di perangkat yang mendukung, foto KTP ikut terlampir otomatis; jika tidak, lampirkan foto KTP pada chat yang terbuka.
+                            Menekan <span class="font-semibold text-foreground">Kirim</span> akan membuka chat WhatsApp admin
+                            <span class="font-semibold text-foreground">{{ $waDisplay }}</span> dengan data pendaftaran sudah terisi otomatis.
+                            Foto KTP tidak bisa ikut lewat tautan, jadi silakan lampirkan pada chat tersebut.
                         </p>
                     </div>
 
@@ -221,11 +222,23 @@
                         </a>
                     </div>
 
-                    {{-- Hint cadangan bila WhatsApp tidak otomatis terbuka --}}
-                    <p id="submit-hint" class="mt-4 hidden border-l-4 border-[#25D366] bg-neutral-100 p-3 font-body text-xs leading-relaxed text-neutral-600">
-                        WhatsApp sedang dibuka di tab baru. Jika tidak muncul,
-                        <a id="wa-manual-link" href="#" target="_blank" rel="noopener" class="font-semibold text-brand underline">klik di sini untuk membuka WhatsApp</a>.
-                    </p>
+                    {{-- Panel setelah kirim --}}
+                    <div id="submit-hint" class="mt-4 hidden border-l-4 border-[#25D366] bg-neutral-100 p-4">
+                        <p class="font-body text-sm font-semibold text-foreground">Chat WhatsApp admin sedang dibuka.</p>
+                        <p class="mt-1 font-body text-xs leading-relaxed text-neutral-600">
+                            Kirim pesan yang sudah terisi, lalu <span class="font-semibold text-foreground">lampirkan foto KTP</span> pada chat tersebut.
+                            Jika WhatsApp tidak terbuka,
+                            <a id="wa-manual-link" href="#" target="_blank" rel="noopener" class="font-semibold text-brand underline">klik di sini</a>.
+                        </p>
+                        <button
+                            type="button"
+                            id="share-ktp-btn"
+                            class="mt-3 hidden inline-flex min-h-[44px] items-center gap-2 border border-[#25D366] bg-white px-4 py-2 font-sans text-xs font-bold uppercase tracking-widest text-[#128C4A] transition-colors hover:bg-[#25D366] hover:text-white"
+                        >
+                            <x-ui.wa-icon class="h-4 w-4" />
+                            Lampirkan Foto KTP
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
