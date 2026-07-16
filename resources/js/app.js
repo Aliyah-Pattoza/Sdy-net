@@ -178,16 +178,24 @@ function initRegisterForm() {
         const paketName = opt?.dataset.name || '';
         const price = opt?.dataset.price || '';
 
+        const paketShort = paketName.replace(/^Paket\s+/i, '');
+
         return (
-            `*PENDAFTARAN SDY NET*\n` +
-            `------------------------------\n` +
-            `Nama (sesuai KTP): ${nama}\n` +
-            `No. HP: ${hp}\n` +
-            `Alamat: ${alamat}\n` +
-            `Paket: ${paketName} (Rp ${price}/bln)\n` +
-            `Biaya pasang: Rp ${installFee} (bayar setelah instalasi)\n` +
-            `------------------------------\n` +
-            `Foto KTP saya lampirkan pada chat ini. Mohon diproses ya, terima kasih.`
+            `*PENDAFTARAN SDY NET* 📡\n` +
+            `\n` +
+            `👤 *Nama (KTP)*\n${nama}\n` +
+            `\n` +
+            `📱 *No. HP*\n${hp}\n` +
+            `\n` +
+            `🏠 *Alamat*\n${alamat}\n` +
+            `\n` +
+            `📦 *Paket*\n${paketShort} — Rp ${price}/bln\n` +
+            `\n` +
+            `🔧 *Pemasangan & sewa modem*\nRp ${installFee} (bayar setelah instalasi)\n` +
+            `\n` +
+            `━━━━━━━━━━━━━━\n` +
+            `📎 Foto KTP saya lampirkan pada chat ini.\n` +
+            `Mohon diproses ya, terima kasih 🙏`
         );
     };
 
