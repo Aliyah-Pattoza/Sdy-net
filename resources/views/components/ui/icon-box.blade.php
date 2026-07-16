@@ -11,7 +11,7 @@
 @endphp
 
 <div {{ $attributes->merge([
-    'class' => 'flex items-center justify-center border border-foreground text-foreground transition-all duration-200 hover:bg-foreground hover:text-background '.($sizes[$size] ?? $sizes['md']),
+    'class' => 'flex items-center justify-center border border-brand text-brand transition-all duration-200 hover:bg-brand hover:text-white '.($sizes[$size] ?? $sizes['md']),
 ]) }}>
     {{ $slot }}
 </div>

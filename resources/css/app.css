@@ -7,34 +7,34 @@
 
 /*
  |--------------------------------------------------------------------------
- | Newsprint Design Tokens
+ | SDY NET Design Tokens
  |--------------------------------------------------------------------------
- | Centralized DNA for the editorial / newsprint aesthetic.
- | Light mode only — no dark theme.
+ | Newsprint structure (sharp grids, zero radius) + ISP brand blues/cyans.
  */
 
 @theme {
-    /* Colors */
-    --color-background: #F9F9F7;
-    --color-foreground: #111111;
-    --color-muted: #E5E5E0;
-    --color-accent: #CC0000;
-    --color-border: #111111;
+    /* Brand palette derived from logo */
+    --color-background: #F3F7FC;
+    --color-foreground: #0B1F3A;
+    --color-muted: #D7E3F2;
+    --color-accent: #00B8E6;
+    --color-brand: #0056D6;
+    --color-brand-deep: #003B99;
+    --color-border: #0B1F3A;
 
-    --color-neutral-100: #F5F5F5;
-    --color-neutral-200: #E5E5E5;
-    --color-neutral-400: #A3A3A3;
-    --color-neutral-500: #737373;
-    --color-neutral-600: #525252;
-    --color-neutral-700: #404040;
+    --color-neutral-100: #EAF1F9;
+    --color-neutral-200: #D5E2F0;
+    --color-neutral-400: #8AA0B8;
+    --color-neutral-500: #5C7390;
+    --color-neutral-600: #3D5570;
+    --color-neutral-700: #243B55;
 
-    /* Typography */
+    /* Typography — speed-forward sans + readable body */
     --font-sans: 'Inter', 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
-    --font-serif: 'Playfair Display', 'Times New Roman', ui-serif, Georgia, serif;
-    --font-body: 'Lora', Georgia, ui-serif, serif;
+    --font-serif: 'Exo 2', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', ui-monospace, monospace;
 
-    /* Sharp corners everywhere */
     --radius-xs: 0px;
     --radius-sm: 0px;
     --radius-md: 0px;
@@ -60,16 +60,20 @@
         background-color: var(--color-background);
         color: var(--color-foreground);
         font-family: var(--font-body);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23111111' fill-opacity='0.04' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+        background-image:
+            radial-gradient(ellipse 80% 50% at 100% -10%, rgba(0, 184, 230, 0.12), transparent 55%),
+            radial-gradient(ellipse 60% 40% at 0% 0%, rgba(0, 86, 214, 0.08), transparent 50%),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%230B1F3A' fill-opacity='0.035' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+        background-attachment: fixed;
     }
 
     ::selection {
         background-color: var(--color-accent);
-        color: var(--color-background);
+        color: #041018;
     }
 
     :focus-visible {
-        outline: 2px solid var(--color-foreground);
+        outline: 2px solid var(--color-brand);
         outline-offset: 2px;
     }
 }
@@ -83,7 +87,24 @@
         border-radius: 0 !important;
     }
 
-    /* Fine graph-paper overlay for major sections */
+    /* Brand gradient text (matches SDY wordmark) */
+    .text-brand-gradient {
+        background-image: linear-gradient(90deg, #003B99 0%, #0056D6 42%, #00B8E6 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .bg-brand-gradient {
+        background-image: linear-gradient(120deg, #003B99 0%, #0056D6 45%, #00B8E6 100%);
+    }
+
+    .bg-signal-panel {
+        background-image:
+            linear-gradient(145deg, #041628 0%, #0B1F3A 45%, #003B99 100%),
+            radial-gradient(circle at 85% 20%, rgba(0, 184, 230, 0.35), transparent 40%);
+    }
+
     .newsprint-texture {
         position: relative;
     }
@@ -93,11 +114,11 @@
         position: absolute;
         inset: 0;
         background-image:
-            linear-gradient(0deg, transparent 98%, rgba(0, 0, 0, 0.02) 100%),
-            linear-gradient(90deg, transparent 98%, rgba(0, 0, 0, 0.02) 100%);
+            linear-gradient(0deg, transparent 98%, rgba(0, 86, 214, 0.04) 100%),
+            linear-gradient(90deg, transparent 98%, rgba(0, 184, 230, 0.04) 100%);
         background-size: 3px 3px;
         pointer-events: none;
-        opacity: 0.5;
+        opacity: 0.7;
         z-index: 0;
     }
 
@@ -106,43 +127,51 @@
         z-index: 1;
     }
 
-    /* Hard offset shadow — newspaper cutout lift */
     .hard-shadow-hover {
-        transition: box-shadow 200ms ease-out, transform 200ms ease-out;
+        transition: box-shadow 200ms ease-out, transform 200ms ease-out, border-color 200ms ease-out;
     }
 
     .hard-shadow-hover:hover {
-        box-shadow: 4px 4px 0 0 #111111;
+        box-shadow: 4px 4px 0 0 #0056D6;
         transform: translate(-2px, -2px);
+        border-color: #0056D6;
     }
 
-    /* Halftone placeholder for images */
     .halftone-placeholder {
-        background-image: radial-gradient(#000 1px, transparent 1px);
+        background-image: radial-gradient(#0056D6 1px, transparent 1px);
         background-size: 16px 16px;
-        opacity: 0.1;
+        opacity: 0.18;
     }
 
-    /* Drop cap for editorial lead paragraphs */
+    .signal-mesh {
+        background-image:
+            linear-gradient(135deg, rgba(0, 86, 214, 0.15), rgba(0, 184, 230, 0.25)),
+            radial-gradient(circle at 30% 40%, rgba(0, 184, 230, 0.35), transparent 45%),
+            radial-gradient(#0B1F3A 1px, transparent 1px);
+        background-size: auto, auto, 18px 18px;
+    }
+
     .drop-cap::first-letter {
         float: left;
         font-family: var(--font-serif);
         font-size: 4.5rem;
         line-height: 0.85;
         font-weight: 900;
+        font-style: italic;
         padding-right: 0.5rem;
         padding-top: 0.35rem;
-        color: var(--color-foreground);
+        background-image: linear-gradient(180deg, #0056D6, #00B8E6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
     }
 
-    /* Collapsed column borders: no right border on mobile */
     @media (max-width: 767px) {
         .grid-border-r {
             border-right-width: 0;
         }
     }
 
-    /* Marquee ticker animation */
     .ticker-track {
         display: flex;
         width: max-content;
@@ -154,15 +183,10 @@
     }
 
     @keyframes ticker-scroll {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(-50%);
-        }
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
     }
 
-    /* Accordion open/close */
     .accordion-panel {
         display: grid;
         transition: grid-template-rows 300ms ease-in-out, opacity 300ms ease-in-out;
@@ -182,15 +206,28 @@
         overflow: hidden;
     }
 
-    /* Image treatment: grayscale → vintage on hover */
     .newsprint-image {
-        filter: grayscale(1);
+        filter: saturate(1.1);
         transition: filter 200ms ease-out, transform 200ms ease-out;
     }
 
     .group:hover .newsprint-image,
     .newsprint-image:hover {
-        filter: grayscale(1) sepia(0.5);
-        transform: scale(1.05);
+        filter: saturate(1.25) brightness(1.05);
+        transform: scale(1.04);
+    }
+
+    .speed-line {
+        position: relative;
+    }
+
+    .speed-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.35rem;
+        height: 3px;
+        width: 4.5rem;
+        background: linear-gradient(90deg, #0056D6, #00B8E6, transparent);
     }
 }

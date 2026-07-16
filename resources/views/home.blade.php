@@ -1,58 +1,59 @@
-<x-layouts.app title="Front Page">
+<x-layouts.app title="High Speed Internet">
     <x-layout.masthead />
     <x-layout.ticker />
 
     <main>
-        {{-- Hero: brand-first editorial front page --}}
+        {{-- Hero --}}
         <section id="front" class="newsprint-texture border-b border-foreground">
             <div class="mx-auto max-w-screen-xl px-4">
                 <div class="grid grid-cols-1 border-x border-foreground lg:grid-cols-12">
                     <div class="border-b border-foreground p-6 sm:p-8 lg:col-span-8 lg:border-b-0 lg:border-r lg:p-10">
-                        <x-ui.badge variant="accent" class="mb-6">Breaking</x-ui.badge>
+                        <x-ui.badge variant="accent" class="mb-6">Fiber Ready</x-ui.badge>
 
-                        <h1 class="font-serif text-5xl font-black leading-[0.9] tracking-tighter text-foreground sm:text-6xl lg:text-9xl">
-                            SDY
-                        </h1>
+                        <div class="max-w-xl">
+                            <x-ui.logo variant="full" class="w-full max-w-md sm:max-w-lg lg:max-w-xl" />
+                        </div>
 
-                        <p class="mt-4 max-w-2xl font-serif text-2xl font-semibold leading-tight text-neutral-700 sm:text-3xl lg:text-4xl">
-                            Structure is the story.
+                        <p class="speed-line mt-8 max-w-xl font-serif text-2xl font-black italic leading-tight text-foreground sm:text-3xl lg:text-4xl">
+                            Internet cepat. Koneksi stabil.
                         </p>
 
                         <p class="drop-cap mt-6 max-w-xl font-body text-base leading-relaxed text-neutral-600 sm:text-lg">
-                            A newsprint-born design system for Laravel — high contrast, sharp grids, and typography
-                            that earns its authority. Built for interfaces that read like a publication of record.
+                            SDY NET menghadirkan fiber broadband untuk rumah dan bisnis. Streaming tanpa buffering,
+                            meeting lancar, dan game responsif — dengan dukungan yang siap membantu kapan saja.
                         </p>
 
                         <div class="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                            <x-ui.button href="#dispatches" class="w-full sm:w-auto">
-                                Read the dispatches
+                            <x-ui.button href="#paket" class="w-full sm:w-auto">
+                                Lihat paket
                             </x-ui.button>
-                            <x-ui.button href="#subscribe" variant="secondary" class="w-full sm:w-auto">
-                                Subscribe
+                            <x-ui.button href="#kontak" variant="secondary" class="w-full sm:w-auto">
+                                Cek jangkauan
                             </x-ui.button>
                         </div>
                     </div>
 
                     <aside class="flex flex-col lg:col-span-4">
                         <div class="flex flex-1 flex-col justify-between border-b border-foreground p-6 lg:p-8">
-                            <x-ui.section-label>Today's Lead</x-ui.section-label>
+                            <x-ui.section-label>Spotlight</x-ui.section-label>
                             <div class="mt-4">
-                                <p class="font-mono text-xs uppercase tracking-widest text-accent">Fig. 1.1</p>
-                                <h2 class="mt-2 font-serif text-2xl font-bold leading-tight lg:text-3xl">
-                                    Typography before decoration.
+                                <p class="font-mono text-xs uppercase tracking-widest text-brand">Paket unggulan</p>
+                                <h2 class="mt-2 font-serif text-2xl font-black italic leading-tight lg:text-3xl">
+                                    Hingga <span class="text-brand-gradient">1 Gbps</span>
                                 </h2>
-                                <p class="mt-3 font-body text-sm leading-relaxed text-justify text-neutral-600">
-                                    Massive serifs, ink-black rules, and zero radius. The page should feel like holding
-                                    a morning edition — crisp, organized, information-rich.
+                                <p class="mt-3 font-body text-sm leading-relaxed text-neutral-600">
+                                    Bandwidth simetris, latency rendah, dan trafik tanpa batas untuk keluarga digital
+                                    maupun kantor kecil.
                                 </p>
                             </div>
                         </div>
-                        <div class="relative min-h-[200px] flex-1 overflow-hidden bg-neutral-200 lg:min-h-0">
-                            <div class="halftone-placeholder absolute inset-0 opacity-100" aria-hidden="true"></div>
-                            <div class="absolute inset-0 flex items-end p-6">
-                                <p class="font-mono text-xs uppercase tracking-widest text-foreground">
-                                    Halftone · Desk Photo
-                                </p>
+                        <div class="relative min-h-[220px] flex-1 overflow-hidden signal-mesh lg:min-h-0">
+                            <div class="absolute inset-0 flex flex-col justify-between p-6 text-foreground">
+                                <x-ui.badge variant="inverted">Live Network</x-ui.badge>
+                                <div>
+                                    <p class="font-mono text-4xl font-medium tracking-tighter text-brand-deep">99.9%</p>
+                                    <p class="mt-1 font-mono text-xs uppercase tracking-widest">Uptime target</p>
+                                </div>
                             </div>
                         </div>
                     </aside>
@@ -62,58 +63,63 @@
 
         <x-ui.ornament />
 
-        {{-- Dispatches: collapsed newspaper column grid --}}
-        <section id="dispatches" class="border-b border-foreground py-16">
+        {{-- Paket --}}
+        <section id="paket" class="border-b border-foreground py-16">
             <div class="mx-auto max-w-screen-xl px-4">
                 <div class="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                        <x-ui.section-label>Section A</x-ui.section-label>
-                        <h2 class="mt-2 font-serif text-4xl font-black uppercase tracking-tight lg:text-5xl">
-                            Dispatches
+                        <x-ui.section-label>Pilihan kecepatan</x-ui.section-label>
+                        <h2 class="mt-2 font-serif text-4xl font-black italic tracking-tight lg:text-5xl">
+                            Paket SDY NET
                         </h2>
                     </div>
                     <p class="max-w-md font-body text-sm leading-relaxed text-neutral-600">
-                        Four columns. Shared borders. No soft shadows — just ink and paper.
+                        Pilih kecepatan sesuai kebutuhan. Semua paket fiber, siap upgrade kapan saja.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 border-l border-t border-foreground sm:grid-cols-2 lg:grid-cols-4">
                     @php
-                        $dispatches = [
+                        $plans = [
                             [
-                                'kicker' => 'Design',
-                                'title' => 'Sharp corners only',
-                                'body' => 'Every element is a perfect rectangle. Soft UI has no place on this desk.',
+                                'kicker' => 'Rumah',
+                                'title' => '50 Mbps',
+                                'body' => 'Ideal untuk browsing, sosial media, dan streaming HD di 1–2 perangkat.',
+                                'price' => 'Mulai hemat',
                             ],
                             [
-                                'kicker' => 'Type',
-                                'title' => 'Playfair leads',
-                                'body' => 'Display serifs for headlines. Lora for reading. Inter for the chrome.',
+                                'kicker' => 'Keluarga',
+                                'title' => '100 Mbps',
+                                'body' => 'Streaming 4K, sekolah online, dan WFH berjalan berdampingan tanpa saling ganggu.',
+                                'price' => 'Paling populer',
                             ],
                             [
-                                'kicker' => 'Grid',
-                                'title' => 'Visible structure',
-                                'body' => 'Borders are celebrated. Columns collapse cleanly from four to one.',
+                                'kicker' => 'Pro',
+                                'title' => '300 Mbps',
+                                'body' => 'Untuk kreator, gamer, dan rumah dengan banyak perangkat pintar.',
+                                'price' => 'Performa tinggi',
                             ],
                             [
-                                'kicker' => 'Accent',
-                                'title' => 'Red, sparingly',
-                                'body' => 'Editorial red appears only for breaking badges, CTAs, and hover states.',
+                                'kicker' => 'Biz',
+                                'title' => '1 Gbps',
+                                'body' => 'Kantor kecil hingga studio — upload cepat, meeting stabil, trafik padat tetap mulus.',
+                                'price' => 'Maksimal',
                             ],
                         ];
                     @endphp
 
-                    @foreach ($dispatches as $index => $item)
+                    @foreach ($plans as $item)
                         <article class="group border-b border-r border-foreground bg-background p-6 transition-colors duration-200 hover:bg-neutral-100 hard-shadow-hover grid-border-r">
                             <x-ui.section-label>{{ $item['kicker'] }}</x-ui.section-label>
-                            <h3 class="mt-3 font-serif text-2xl font-bold leading-tight lg:text-3xl">
+                            <h3 class="mt-3 font-serif text-3xl font-black italic leading-tight text-brand-gradient">
                                 {{ $item['title'] }}
                             </h3>
-                            <p class="mt-3 font-body text-sm leading-relaxed text-justify text-neutral-600">
+                            <p class="mt-1 font-mono text-xs uppercase tracking-widest text-accent">{{ $item['price'] }}</p>
+                            <p class="mt-3 font-body text-sm leading-relaxed text-neutral-600">
                                 {{ $item['body'] }}
                             </p>
-                            <x-ui.button href="#method" variant="link" class="mt-4">
-                                Continue →
+                            <x-ui.button href="#kontak" variant="link" class="mt-4">
+                                Order paket →
                             </x-ui.button>
                         </article>
                     @endforeach
@@ -121,37 +127,36 @@
             </div>
         </section>
 
-        {{-- Method: inverted black section --}}
-        <section id="method" class="border-b border-foreground bg-foreground text-background">
+        {{-- Keunggulan inverted --}}
+        <section id="keunggulan" class="border-b border-foreground bg-signal-panel text-white">
             <div class="mx-auto max-w-screen-xl px-4 py-16">
                 <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-0">
-                    <div class="lg:col-span-5 lg:border-r lg:border-neutral-700 lg:pr-10">
-                        <x-ui.section-label class="!text-neutral-400">How It Works</x-ui.section-label>
-                        <h2 class="mt-2 font-serif text-4xl font-black leading-tight lg:text-5xl">
-                            From token to type.
+                    <div class="lg:col-span-5 lg:border-r lg:border-white/20 lg:pr-10">
+                        <x-ui.section-label class="!text-accent">Kenapa SDY NET</x-ui.section-label>
+                        <h2 class="mt-2 font-serif text-4xl font-black italic leading-tight lg:text-5xl">
+                            Dibangun untuk kecepatan nyata.
                         </h2>
-                        <p class="mt-4 font-body text-base leading-relaxed text-neutral-400">
-                            Centralize the DNA once — colors, type, radius, motion — then compose pages from sharp,
-                            reusable Blade primitives.
+                        <p class="mt-4 font-body text-base leading-relaxed text-white/70">
+                            Bukan janji di brosur — infrastruktur fiber, monitoring aktif, dan tim support yang merespons cepat.
                         </p>
                     </div>
 
                     <ol class="lg:col-span-7 lg:pl-10">
                         @php
                             $steps = [
-                                ['n' => '01', 'title' => 'Tokens', 'copy' => 'Newsprint colors and fonts live in Tailwind @theme — one source of truth.'],
-                                ['n' => '02', 'title' => 'Primitives', 'copy' => 'Buttons, cards, inputs, and badges share variants without one-off styles.'],
-                                ['n' => '03', 'title' => 'Layouts', 'copy' => 'Masthead, ticker, and footer encode the editorial chrome of every edition.'],
-                                ['n' => '04', 'title' => 'Pages', 'copy' => 'Compose asymmetric 8/4 and 5/7 grids with collapsed borders and ornaments.'],
+                                ['n' => '01', 'title' => 'Fiber optic', 'copy' => 'Kabel fiber untuk latency rendah dan kecepatan konsisten naik-turun.'],
+                                ['n' => '02', 'title' => 'Tanpa FUP', 'copy' => 'Pakai sepuasnya untuk streaming, download, dan cloud — tanpa pelambatan tersembunyi.'],
+                                ['n' => '03', 'title' => 'Instalasi rapi', 'copy' => 'Teknisi terjadwal, instalasi bersih, dan aktivasi yang transparan.'],
+                                ['n' => '04', 'title' => 'Support 24/7', 'copy' => 'Bantuan via WhatsApp dan telepon kapan pun jaringan Anda butuh perhatian.'],
                             ];
                         @endphp
 
                         @foreach ($steps as $step)
-                            <li class="flex gap-6 border-b border-neutral-700 py-6 last:border-b-0">
+                            <li class="flex gap-6 border-b border-white/15 py-6 last:border-b-0">
                                 <span class="font-mono text-2xl font-medium text-accent">{{ $step['n'] }}</span>
                                 <div>
-                                    <h3 class="font-serif text-2xl font-bold">{{ $step['title'] }}</h3>
-                                    <p class="mt-2 font-body text-sm leading-relaxed text-neutral-400">
+                                    <h3 class="font-serif text-2xl font-bold italic">{{ $step['title'] }}</h3>
+                                    <p class="mt-2 font-body text-sm leading-relaxed text-white/70">
                                         {{ $step['copy'] }}
                                     </p>
                                 </div>
@@ -162,37 +167,36 @@
             </div>
         </section>
 
-        {{-- Archive: asymmetric 5/7 feature split --}}
-        <section id="archive" class="border-b border-foreground py-16">
+        {{-- Jangkauan --}}
+        <section id="jangkauan" class="border-b border-foreground py-16">
             <div class="mx-auto max-w-screen-xl px-4">
                 <div class="grid grid-cols-1 border border-foreground lg:grid-cols-12">
-                    <div class="relative min-h-[280px] overflow-hidden bg-neutral-200 lg:col-span-5 lg:border-r lg:border-foreground">
-                        <div class="group absolute inset-0">
-                            <div class="halftone-placeholder absolute inset-0 newsprint-image opacity-100 scale-100" aria-hidden="true"></div>
-                        </div>
+                    <div class="relative min-h-[280px] overflow-hidden signal-mesh lg:col-span-5 lg:border-r lg:border-foreground">
                         <div class="absolute inset-0 flex flex-col justify-between p-6">
-                            <x-ui.badge>Fig. 2.0</x-ui.badge>
-                            <p class="font-mono text-xs uppercase tracking-widest">Archive plate</p>
+                            <x-ui.badge variant="inverted">Coverage</x-ui.badge>
+                            <p class="font-mono text-xs uppercase tracking-widest text-foreground">
+                                Area layanan aktif & ekspansi
+                            </p>
                         </div>
                     </div>
 
                     <div class="p-6 sm:p-8 lg:col-span-7 lg:p-10">
-                        <x-ui.section-label>From the Archive</x-ui.section-label>
-                        <h2 class="mt-2 font-serif text-4xl font-black leading-tight lg:text-5xl">
-                            Density without noise.
+                        <x-ui.section-label>Jangkauan</x-ui.section-label>
+                        <h2 class="mt-2 font-serif text-4xl font-black italic leading-tight lg:text-5xl">
+                            Cek apakah rumah Anda sudah tercover.
                         </h2>
-                        <p class="drop-cap mt-6 font-body text-base leading-relaxed text-justify text-neutral-600">
-                            High information density is not clutter. Tight padding, collapsed borders, and justified
-                            columns create the cadence of a broadsheet — urgent, trustworthy, and readable at speed.
+                        <p class="drop-cap mt-6 font-body text-base leading-relaxed text-neutral-600">
+                            Jaringan SDY NET terus diperluas. Kirim lokasi Anda — tim kami akan konfirmasi ketersediaan
+                            dan jadwal pemasangan dalam waktu singkat.
                         </p>
                         <div class="mt-8 grid grid-cols-1 gap-0 border-t border-foreground sm:grid-cols-3">
                             @foreach ([
-                                ['stat' => '0px', 'label' => 'Border radius'],
-                                ['stat' => '12', 'label' => 'Column grid'],
-                                ['stat' => '1%', 'label' => 'Accent usage'],
+                                ['stat' => '1G', 'label' => 'Max speed'],
+                                ['stat' => '24/7', 'label' => 'Support'],
+                                ['stat' => '0', 'label' => 'FUP limit'],
                             ] as $stat)
                                 <div class="border-b border-foreground p-4 sm:border-b-0 sm:border-r sm:last:border-r-0">
-                                    <p class="font-mono text-3xl font-medium tracking-tighter">{{ $stat['stat'] }}</p>
+                                    <p class="font-mono text-3xl font-medium tracking-tighter text-brand">{{ $stat['stat'] }}</p>
                                     <p class="mt-1 font-mono text-xs uppercase tracking-widest text-neutral-500">
                                         {{ $stat['label'] }}
                                     </p>
@@ -206,75 +210,59 @@
 
         <x-ui.ornament />
 
-        {{-- Component showcase strip --}}
+        {{-- Highlights --}}
         <section class="border-b border-foreground py-16">
             <div class="mx-auto max-w-screen-xl px-4">
-                <x-ui.section-label>System Specimens</x-ui.section-label>
-                <h2 class="mt-2 font-serif text-4xl font-black lg:text-5xl">UI in ink.</h2>
+                <x-ui.section-label>Yang Anda dapatkan</x-ui.section-label>
+                <h2 class="mt-2 font-serif text-4xl font-black italic lg:text-5xl">Siap dipakai setiap hari.</h2>
 
                 <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
-                    <x-ui.card class="lg:col-span-4" hard-shadow interactive>
-                        <div class="flex items-start gap-4">
-                            <x-ui.icon-box>
-                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                    <path stroke-linecap="square" d="M4 6h16M4 12h10M4 18h14" />
-                                </svg>
-                            </x-ui.icon-box>
-                            <div>
-                                <h3 class="font-serif text-2xl font-bold">Cards</h3>
-                                <p class="mt-2 font-body text-sm text-neutral-600">
-                                    Black border, off-white fill, optional hard-shadow hover.
-                                </p>
+                    @foreach ([
+                        ['title' => 'Streaming & gaming', 'body' => 'Buffering turun, ping stabil — cocok untuk hiburan keluarga dan kompetitif.'],
+                        ['title' => 'Kerja & sekolah', 'body' => 'Video call jernih, upload file cepat, banyak perangkat online bersamaan.'],
+                        ['title' => 'Bisnis kecil', 'body' => 'Koneksi andal untuk kasir cloud, CCTV, dan operasional harian.'],
+                    ] as $item)
+                        <x-ui.card class="lg:col-span-4" hard-shadow interactive>
+                            <div class="flex items-start gap-4">
+                                <x-ui.icon-box class="border-brand text-brand hover:bg-brand hover:text-white">
+                                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                        <path stroke-linecap="square" d="M4 12h16M12 4l8 8-8 8" />
+                                    </svg>
+                                </x-ui.icon-box>
+                                <div>
+                                    <h3 class="font-serif text-2xl font-bold italic">{{ $item['title'] }}</h3>
+                                    <p class="mt-2 font-body text-sm text-neutral-600">{{ $item['body'] }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </x-ui.card>
-
-                    <div class="flex flex-col justify-center gap-4 border border-foreground p-6 lg:col-span-4">
-                        <x-ui.section-label>Buttons</x-ui.section-label>
-                        <div class="flex flex-wrap gap-3">
-                            <x-ui.button size="sm">Primary</x-ui.button>
-                            <x-ui.button variant="secondary" size="sm">Secondary</x-ui.button>
-                            <x-ui.button variant="ghost" size="sm">Ghost</x-ui.button>
-                        </div>
-                        <x-ui.button variant="link">Link with red underline</x-ui.button>
-                    </div>
-
-                    <div class="border border-foreground p-6 lg:col-span-4">
-                        <x-ui.section-label class="mb-4">Badges</x-ui.section-label>
-                        <div class="flex flex-wrap gap-2">
-                            <x-ui.badge>Default</x-ui.badge>
-                            <x-ui.badge variant="accent">Breaking</x-ui.badge>
-                            <x-ui.badge variant="inverted">Inverted</x-ui.badge>
-                            <x-ui.badge variant="muted">Muted</x-ui.badge>
-                        </div>
-                    </div>
+                        </x-ui.card>
+                    @endforeach
                 </div>
             </div>
         </section>
 
-        {{-- FAQ accordion --}}
+        {{-- FAQ --}}
         <section id="faq" class="border-b border-foreground py-16">
             <div class="mx-auto max-w-screen-xl px-4">
                 <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
                     <div class="lg:col-span-4">
-                        <x-ui.section-label>Corrections Desk</x-ui.section-label>
-                        <h2 class="mt-2 font-serif text-4xl font-black lg:text-5xl">FAQ</h2>
+                        <x-ui.section-label>Bantuan</x-ui.section-label>
+                        <h2 class="mt-2 font-serif text-4xl font-black italic lg:text-5xl">FAQ</h2>
                     </div>
 
                     <div class="border-t border-foreground lg:col-span-8" data-accordion>
                         @php
                             $faqs = [
                                 [
-                                    'q' => 'Is this a dark mode design system?',
-                                    'a' => 'No. Newsprint is permanently light — off-white paper, ink black type, and a single editorial red accent.',
+                                    'q' => 'Berapa lama proses pemasangan?',
+                                    'a' => 'Setelah area terkonfirmasi, jadwal instalasi biasanya dapat diatur dalam beberapa hari kerja tergantung antrean teknisi di lokasi Anda.',
                                 ],
                                 [
-                                    'q' => 'Where do the design tokens live?',
-                                    'a' => 'In resources/css/app.css under @theme, plus component utilities for textures, hard shadows, and drop caps.',
+                                    'q' => 'Apakah ada batasan kuota (FUP)?',
+                                    'a' => 'Tidak. Paket SDY NET dirancang tanpa FUP agar penggunaan harian tetap konsisten.',
                                 ],
                                 [
-                                    'q' => 'How should new pages be built?',
-                                    'a' => 'Compose from x-ui.* and x-layout.* Blade components. Prefer 12-column asymmetric splits and collapsed borders over card grids.',
+                                    'q' => 'Bagaimana cara cek jangkauan?',
+                                    'a' => 'Isi formulir kontak dengan alamat atau kirim lokasi via WhatsApp — tim kami akan segera mengonfirmasi ketersediaan jaringan.',
                                 ],
                             ];
                         @endphp
@@ -283,12 +271,12 @@
                             <div class="border-b border-foreground" data-accordion-item>
                                 <button
                                     type="button"
-                                    class="flex w-full min-h-[44px] items-center justify-between gap-4 py-5 text-left font-serif text-xl font-bold transition-colors duration-200 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
+                                    class="flex w-full min-h-[44px] items-center justify-between gap-4 py-5 text-left font-serif text-xl font-bold italic transition-colors duration-200 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
                                     aria-expanded="{{ $i === 0 ? 'true' : 'false' }}"
                                     data-accordion-trigger
                                 >
                                     <span>{{ $faq['q'] }}</span>
-                                    <span class="accordion-icon flex h-8 w-8 shrink-0 items-center justify-center border border-foreground font-mono text-lg transition-transform duration-200 {{ $i === 0 ? 'rotate-45' : '' }}" aria-hidden="true">+</span>
+                                    <span class="accordion-icon flex h-8 w-8 shrink-0 items-center justify-center border border-brand text-brand font-mono text-lg transition-transform duration-200 {{ $i === 0 ? 'rotate-45' : '' }}" aria-hidden="true">+</span>
                                 </button>
                                 <div class="accordion-panel" data-open="{{ $i === 0 ? 'true' : 'false' }}">
                                     <div>
@@ -304,34 +292,49 @@
             </div>
         </section>
 
-        {{-- Subscribe --}}
-        <section id="subscribe" class="py-16">
+        {{-- Kontak --}}
+        <section id="kontak" class="py-16">
             <div class="mx-auto max-w-screen-xl px-4">
                 <div class="grid grid-cols-1 border border-foreground lg:grid-cols-12">
                     <div class="border-b border-foreground p-6 sm:p-8 lg:col-span-7 lg:border-b-0 lg:border-r lg:p-10">
-                        <x-ui.section-label>Circulation</x-ui.section-label>
-                        <h2 class="mt-2 font-serif text-4xl font-black leading-tight lg:text-5xl">
-                            Get the morning edition.
+                        <x-ui.section-label>Mulai terhubung</x-ui.section-label>
+                        <h2 class="mt-2 font-serif text-4xl font-black italic leading-tight lg:text-5xl">
+                            Pasang SDY NET hari ini.
                         </h2>
                         <p class="mt-4 max-w-lg font-body text-base leading-relaxed text-neutral-600">
-                            One letter. No fluff. Design notes and system updates printed for the web.
+                            Tinggalkan kontak Anda. Kami hubungi untuk cek jangkauan, rekomendasi paket, dan jadwal instalasi.
                         </p>
                     </div>
 
                     <form class="flex flex-col justify-center gap-6 p-6 sm:p-8 lg:col-span-5" action="#" method="post" onsubmit="return false;">
                         <x-ui.input
-                            type="email"
-                            name="email"
-                            label="Email address"
-                            placeholder="desk@example.com"
+                            type="text"
+                            name="name"
+                            label="Nama"
+                            placeholder="Nama lengkap"
                             required
-                            autocomplete="email"
+                            autocomplete="name"
+                        />
+                        <x-ui.input
+                            type="tel"
+                            name="phone"
+                            label="WhatsApp / Telepon"
+                            placeholder="08xxxxxxxxxx"
+                            required
+                            autocomplete="tel"
+                        />
+                        <x-ui.input
+                            type="text"
+                            name="address"
+                            label="Alamat / Area"
+                            placeholder="Kelurahan, kecamatan, kota"
+                            required
                         />
                         <x-ui.button type="submit" class="w-full">
-                            Subscribe to SDY
+                            Kirim permintaan
                         </x-ui.button>
                         <p class="font-mono text-xs uppercase tracking-widest text-neutral-500">
-                            Free · Cancel anytime · No spam
+                            Respon cepat · Tanpa spam
                         </p>
                     </form>
                 </div>

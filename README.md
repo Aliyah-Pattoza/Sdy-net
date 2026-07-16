@@ -1,6 +1,6 @@
 # SDY
 
-Laravel + Vite + Tailwind v4 dengan design system **Newsprint**.
+Laravel + Vite + Tailwind v4 dengan brand **SDY NET** (Newsprint layout + warna logo).
 
 ## Syarat
 
