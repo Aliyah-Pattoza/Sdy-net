@@ -266,6 +266,39 @@
         transform: scale(1.04);
     }
 
+    /* Package card — interactive newspaper cutout with accent lift */
+    .package-card {
+        --accent: #0056D6;
+    }
+
+    .package-card:focus-visible {
+        outline-color: var(--accent);
+    }
+
+    .package-card:hover {
+        box-shadow: 6px 6px 0 0 var(--accent);
+        transform: translate(-3px, -3px);
+        border-color: var(--accent);
+    }
+
+    .package-card.is-popular {
+        box-shadow: 4px 4px 0 0 var(--accent);
+    }
+
+    .package-card.is-popular:hover {
+        box-shadow: 8px 8px 0 0 var(--accent);
+    }
+
+    @media (min-width: 1024px) {
+        .package-card.is-popular {
+            transform: translateY(-0.75rem);
+        }
+
+        .package-card.is-popular:hover {
+            transform: translate(-3px, -1.15rem);
+        }
+    }
+
     .speed-line {
         position: relative;
     }
