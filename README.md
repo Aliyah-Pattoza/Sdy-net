@@ -42,6 +42,25 @@ npm install
 composer run start
 ```
 
+## Ganti nomor WhatsApp admin
+
+Nomor tujuan pendaftaran diatur di `.env`:
+
+```env
+SDY_WHATSAPP=6282192379898
+SDY_WHATSAPP_DISPLAY="0821 9237 9898"
+```
+
+- `SDY_WHATSAPP`: format internasional tanpa `+`/spasi (awalan `62`, bukan `0`).
+- Nomor **harus sudah aktif/terdaftar di WhatsApp**, kalau tidak akan muncul
+  "Nomor tidak terdaftar di WhatsApp".
+
+Setelah mengubah `.env`, jalankan:
+
+```bash
+php artisan config:clear
+```
+
 ## Troubleshooting
 
 **Port 8000 sudah dipakai**

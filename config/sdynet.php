@@ -10,9 +10,11 @@
 
 return [
     // Nomor WhatsApp format internasional tanpa tanda "+", spasi, atau "-".
-    // 0821 9237 9898 -> 62 821 9237 9898
-    'whatsapp' => '6282192379898',
-    'whatsapp_display' => '0821 9237 9898',
+    // Contoh: 0821 9237 9898 -> 6282192379898
+    // Ganti lewat .env (SDY_WHATSAPP & SDY_WHATSAPP_DISPLAY) tanpa ubah kode.
+    // PENTING: nomor harus SUDAH terdaftar/aktif di WhatsApp.
+    'whatsapp' => preg_replace('/\D/', '', (string) env('SDY_WHATSAPP', '6282192379898')),
+    'whatsapp_display' => env('SDY_WHATSAPP_DISPLAY', '0821 9237 9898'),
 
     // Biaya pemasangan + sewa modem
     'install_fee' => 250000,
