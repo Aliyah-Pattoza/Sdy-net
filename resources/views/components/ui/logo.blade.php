@@ -13,7 +13,7 @@
     src="{{ $src }}"
     alt="{{ $alt }}"
     {{ $attributes->merge([
-        'class' => 'h-auto w-auto select-none',
+        'class' => 'block max-w-full select-none',
         'decoding' => 'async',
     ]) }}
 >

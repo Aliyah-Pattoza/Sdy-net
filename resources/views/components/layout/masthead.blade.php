@@ -31,7 +31,7 @@
                 class="group block shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
                 aria-label="SDY NET beranda"
             >
-                <x-ui.logo variant="mark" class="h-12 w-auto sm:h-14 lg:h-16 transition-transform duration-200 group-hover:-translate-x-0.5" />
+                <x-ui.logo variant="mark" class="h-9 w-auto sm:h-11 lg:h-14 transition-transform duration-200 group-hover:-translate-x-0.5" />
             </a>
 
             <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">

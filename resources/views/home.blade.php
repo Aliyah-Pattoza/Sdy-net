@@ -21,7 +21,7 @@
                         <x-ui.badge variant="accent" class="mb-6">Fiber Ready</x-ui.badge>
 
                         <div class="max-w-xl">
-                            <x-ui.logo variant="full" class="w-full max-w-md sm:max-w-lg" />
+                            <x-ui.logo variant="full" class="w-full max-w-[240px] sm:max-w-sm lg:max-w-md" />
                         </div>
 
                         <h1 class="speed-line mt-8 max-w-xl font-serif text-3xl font-black uppercase italic leading-tight text-foreground sm:text-4xl lg:text-5xl">
