@@ -4,9 +4,9 @@
 
 @php
     $variants = [
-        'default' => 'border border-foreground bg-background text-foreground',
-        'accent' => 'bg-accent text-background border border-accent',
-        'inverted' => 'bg-foreground text-background border border-foreground',
+        'default' => 'border border-brand bg-background text-brand',
+        'accent' => 'bg-accent text-foreground border border-accent',
+        'inverted' => 'bg-brand-gradient text-white border border-transparent',
         'muted' => 'border border-muted bg-muted text-neutral-700',
     ];
 @endphp
