@@ -13,7 +13,7 @@ Laravel + Vite + Tailwind v4 dengan brand **SDY NET** (Newsprint layout + warna 
 Setelah `git clone` atau `git pull`:
 
 ```bash
-# 1) Install dependency + buat .env + SQLite + migrate + build asset
+# 1) Install dependency + buat .env + APP_KEY + SQLite + migrate + build asset
 composer run setup
 
 # 2) Jalankan server + Vite (cukup untuk lihat front page)
@@ -21,6 +21,8 @@ composer run start
 ```
 
 Buka: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+> `composer run start` otomatis membuat `.env` dan `APP_KEY` jika belum ada.
 
 ### Perintah lain
 
@@ -68,9 +70,12 @@ touch database/database.sqlite
 php artisan migrate
 ```
 
-**Belum punya `.env`**
+**Error: No application encryption key has been specified**
 
 ```bash
-cp .env.example .env
+php scripts/ensure-env.php
+# atau:
 php artisan key:generate
 ```
+
+Lalu jalankan ulang `composer run start`.
