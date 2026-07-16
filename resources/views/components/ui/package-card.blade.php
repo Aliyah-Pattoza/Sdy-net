@@ -8,21 +8,17 @@
     $price = number_format($package['price'] ?? 0, 0, ',', '.');
     $popular = $package['popular'] ?? false;
 
-    $wa = config('sdynet.whatsapp');
-    $message = "Halo SDY NET, saya mau daftar *{$package['name']}* (Rp {$price}/bulan). Mohon info ketersediaan di lokasi saya.";
-    $waLink = 'https://wa.me/'.$wa.'?text='.rawurlencode($message);
+    $registerLink = route('register', ['paket' => $package['slug'] ?? null]);
 @endphp
 
 <a
-    href="{{ $waLink }}"
-    target="_blank"
-    rel="noopener"
+    href="{{ $registerLink }}"
     style="--accent: {{ $accent }}; --accent-soft: {{ $accentSoft }};"
     @class([
         'package-card group relative flex h-full flex-col border border-foreground bg-background p-6 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
         'is-popular' => $popular,
     ])
-    aria-label="Daftar {{ $package['name'] }} via WhatsApp"
+    aria-label="Pilih {{ $package['name'] }} dan lanjut ke pendaftaran"
 >
     {{-- Top accent bar --}}
     <span class="absolute inset-x-0 top-0 h-1 origin-left transition-transform duration-200 group-hover:h-1.5" style="background-color: var(--accent);" aria-hidden="true"></span>
@@ -63,8 +59,7 @@
         class="mt-6 inline-flex min-h-[46px] items-center justify-center gap-2 px-4 py-2 font-sans text-xs font-bold uppercase tracking-widest text-white transition-all duration-200"
         style="background-color: var(--accent);"
     >
-        <x-ui.wa-icon class="h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
-        <span>Daftar sekarang</span>
+        <span>Pilih paket</span>
         <svg class="h-4 w-4 -translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
     </span>
 </a>

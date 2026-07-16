@@ -37,9 +37,8 @@
                             <x-ui.button href="#paket" class="w-full sm:w-auto">
                                 Lihat paket
                             </x-ui.button>
-                            <x-ui.button href="{{ $waGeneral }}" target="_blank" rel="noopener" variant="secondary" class="w-full sm:w-auto">
-                                <x-ui.wa-icon class="h-4 w-4" />
-                                Daftar via WhatsApp
+                            <x-ui.button href="{{ route('register') }}" variant="secondary" class="w-full sm:w-auto">
+                                Daftar sekarang
                             </x-ui.button>
                         </div>
                     </div>
@@ -298,16 +297,13 @@
                     </div>
 
                     <div class="flex flex-col justify-center gap-4 bg-neutral-100 p-6 sm:p-8 lg:col-span-5">
-                        <p class="font-mono text-xs uppercase tracking-widest text-neutral-500">Kirim lokasi Anda</p>
+                        <p class="font-mono text-xs uppercase tracking-widest text-neutral-500">Pilih paket &amp; daftar</p>
                         @foreach ($packages as $package)
                             @php
                                 $p = number_format($package['price'], 0, ',', '.');
-                                $link = 'https://wa.me/'.$wa.'?text='.rawurlencode("Halo SDY NET, saya mau daftar *{$package['name']}* (Rp {$p}/bulan).");
                             @endphp
                             <a
-                                href="{{ $link }}"
-                                target="_blank"
-                                rel="noopener"
+                                href="{{ route('register', ['paket' => $package['slug']]) }}"
                                 class="group flex min-h-[44px] items-center justify-between gap-3 border border-foreground bg-background px-4 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_#0B1F3A]"
                             >
                                 <span class="font-sans text-sm font-semibold">{{ $package['name'] }}</span>
